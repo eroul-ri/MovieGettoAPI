@@ -1,1 +1,44 @@
+spring:
+  application:
+    name: MovieGetto API
+
+  mvc:
+    pathmatch:
+      matching-strategy: path_pattern_parser
+      throw-exception-if-no-handler-found: true
+
+  web:
+    resources:
+      add-mappings: false
+  # h2
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        web-allow-others: true
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:~/api;auto_server=true
+    username: sa
+    password:
+    jpa:
+      database: H2
+      show-sql: true
+      hibernate:
+        ddl-auto: create-drop
+      open-in-view: false
+      properties:
+        hibernate:
+          format_sql: true
+# spring doc
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    display-request-duration: true
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  use-fqn: true
 
